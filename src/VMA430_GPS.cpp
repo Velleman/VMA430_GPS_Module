@@ -438,7 +438,7 @@ bool VMA430_GPS::getUBX_packet(void)
 					else if (i == checksum_idx + 1)
 					{
 						CK_B = incoming_char;
-						Serial.println("Complete msg: ");
+						/*Serial.println("Complete msg: ");
 						Serial.print(class_byte_temp, HEX);
 						Serial.print(" ");
 						Serial.print(id_byte_temp, HEX);
@@ -449,7 +449,7 @@ bool VMA430_GPS::getUBX_packet(void)
 						{
 							Serial.print(buffer_msg[j], HEX);
 							Serial.print(" ");
-						}
+						}*/
 						received_valid_ubx = true;
 
 						latest_msg.class_byte = class_byte_temp;
