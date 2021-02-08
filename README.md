@@ -38,7 +38,7 @@ Wire up the GPS module to an Arduino compatible board as shown below:
 
 ### Programming
 
-1. Open the Arduino IDE, open the GPS example sketch by going to ```File > Examples > Velleman VMA430 GPS MODULE U-BLOX NEO-7M > VMA430_code``` (you might have to scroll down in the examples list to be able to see it)
+1. Open the Arduino IDE, open the GPS example sketch by going to ```File > Examples > WPI430/VMA430 GPS > Show_time_location``` (you might have to scroll down in the examples list to be able to see it)
 2. Upload the example to your Arduino board
 3. Open the Serial Monitor, make sure it is set to a baudrate of 9600 baud
 
