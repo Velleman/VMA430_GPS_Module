@@ -44,3 +44,5 @@ Wire up the GPS module to an Arduino compatible board as shown below:
 
 The example program will first set-up the GPS-module by setting it's communication protocols. It will enable the module to send out UBX messages next to the standard NMEA messages that it normally outputs.
 The program will then decode these UBX messages, and show the parsed output. The data that is sent out includes location data (latitude & longitude) and UTC time (hours, minutes & seconds).
+
+**NOTE**: The GPS module's built-in antenna is only designed to work **outdoors**. You will probably not get valid time and location data if you test this example indoors. You might be able to get reception after a few minutes if you put the GPS antenna close to a window, pointed towards the sky.

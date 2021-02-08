@@ -508,7 +508,7 @@ bool VMA430_GPS::parse_nav_timeutc(void)
 
 	if(latest_msg.payload_length != 20)
 	{
-		return false;
+		return successfull_parsing;
 	}
 	utc_time.year = msg_data[12] | (msg_data[13]<<8);
 	utc_time.month = msg_data[14];
@@ -516,6 +516,8 @@ bool VMA430_GPS::parse_nav_timeutc(void)
 	utc_time.hour = msg_data[16];
 	utc_time.minute = msg_data[17];
 	utc_time.second = msg_data[18];
+	//Serial.println("Validaty time data:");
+	//Serial.println(msg_data[19], HEX);
 	if(msg_data[19] == 0x07)
 	{
 		utc_time.valid = true;
@@ -524,7 +526,8 @@ bool VMA430_GPS::parse_nav_timeutc(void)
 	{
 		utc_time.valid = false;
 	}
-	return true;
+	successfull_parsing = true;
+	return successfull_parsing;
 
 }
 
@@ -546,8 +549,6 @@ bool VMA430_GPS::parse_nav_pos(void)
 
 	for(int j = 0; j<4; j++)
 	{
-		Serial.print(msg_data[4+j], HEX);
-		Serial.print(" ");
 		temp_val = msg_data[4+j];
 		temp_lon |= (temp_val << 8*j);
 	}
@@ -556,8 +557,6 @@ bool VMA430_GPS::parse_nav_pos(void)
 	
 	for(int j = 0; j<4; j++)
 	{
-		Serial.print(msg_data[8+j], HEX);
-		Serial.print(" ");
 		temp_val = msg_data[8+j];
 		temp_lat |= (temp_val << 8*j);
 	}

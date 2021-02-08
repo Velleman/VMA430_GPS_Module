@@ -16,6 +16,10 @@
   The program will then decode these UBX messages, and show the parsed output. 
   The data that is sent out includes location data (latitude & longitude) and UTC time (hours, minutes & seconds).
 
+  NOTE: The GPS module's built-in antenna is only designed to work outdoors. 
+        You will probably not get valid time and location data if you test this example indoors. 
+        You might be able to get reception after a few minutes if you put the GPS antenna close to a window, pointed towards the sky.
+
   For more information about the example and GPS library, check the github page README at https://github.com/Velleman/VMA430_GPS_Module
   For more informarion about the GPS module, consult the manual at the WPI430 product page on whadda.com
   
