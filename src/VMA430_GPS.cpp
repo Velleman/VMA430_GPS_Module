@@ -535,32 +535,22 @@ bool VMA430_GPS::parse_nav_pos(void)
 {
 	bool successfull_parsing = false;
 	
-	uint64_t temp_lon = 0, temp_lat = 0;
+	int32_t temp_lon = 0, temp_lat = 0;
 	double longitude = 0.0;
 	double latitude = 0.0;
 	uint32_t temp_val = 0;
-	//byte test_arr[] = {0x00, 0x45, 0x62, 0x1D, 0x4B, 0xE0, 0x4F, 0x02, 0x4A, 0x34, 0x65, 0x1E, 0x39, 0x5A, 0x00, 0x00, 0x63, 0xA6, 0xFF, 0xFF, 0xD7, 0x39, 0x01, 0x00, 0x9F, 0xB9, 0x00, 0x00};
-	byte* msg_data = latest_msg.msg;
+	byte test_arr[] = {0x00, 0x45, 0x62, 0x1D, 0x4B, 0xE0, 0x4F, 0x02, 0x4A, 0x34, 0x65, 0x1E, 0x39, 0x5A, 0x00, 0x00, 0x63, 0xA6, 0xFF, 0xFF, 0xD7, 0x39, 0x01, 0x00, 0x9F, 0xB9, 0x00, 0x00};
+	byte* msg_data = test_arr;
 
 	if(latest_msg.payload_length != 28)
 	{
 		return false;
 	}
 
-	for(int j = 0; j<4; j++)
-	{
-		temp_val = msg_data[4+j];
-		temp_lon |= (temp_val << 8*j);
-	}
-	//temp_lon = (msg_data[8]) | (msg_data[9] << 8) | (uint32_t)(msg_data[10] << 16) | (uint32_t)(msg_data[11] << 24);
+	temp_lon = extractSignedLong(4, msg_data); 
 	longitude = (double)temp_lon*0.0000001;
 	
-	for(int j = 0; j<4; j++)
-	{
-		temp_val = msg_data[8+j];
-		temp_lat |= (temp_val << 8*j);
-	}
-	//temp_lon = (msg_data[8]) | (msg_data[9] << 8) | (uint32_t)(msg_data[10] << 16) | (uint32_t)(msg_data[11] << 24);
+	temp_lat = extractSignedLong(8, msg_data); 
 	latitude = (double)temp_lat*0.0000001;
 
 	location.latitude = latitude;
@@ -624,6 +614,29 @@ byte VMA430_GPS::getUBX_ACK(byte *msgID)
 		delay(1000);
 		return 1;
 	}
+}
+
+uint32_t VMA430_GPS::extractLong(uint8_t spotToStart, byte* msg_data)
+{
+  uint32_t val = 0;
+  val |= (uint32_t)msg_data[spotToStart + 0] << 8 * 0;
+  val |= (uint32_t)msg_data[spotToStart + 1] << 8 * 1;
+  val |= (uint32_t)msg_data[spotToStart + 2] << 8 * 2;
+  val |= (uint32_t)msg_data[spotToStart + 3] << 8 * 3;
+  return (val);
+}
+
+//Just so there is no ambiguity about whether a uint32_t will cast to a int32_t correctly...
+int32_t VMA430_GPS::extractSignedLong(uint8_t spotToStart, byte* msg_data)
+{
+  union // Use a union to convert from uint32_t to int32_t
+  {
+      uint32_t unsignedLong;
+      int32_t signedLong;
+  } unsignedSigned;
+
+  unsignedSigned.unsignedLong = extractLong(spotToStart, msg_data);
+  return (unsignedSigned.signedLong);
 }
 
 void VMA430_GPS::calcChecksum(byte *checksumPayload, byte payloadSize)
