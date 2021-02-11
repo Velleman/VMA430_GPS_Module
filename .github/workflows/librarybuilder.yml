@@ -37,6 +37,8 @@ jobs:
     # This is the platform GitHub will use to run our workflow, we
     # pick Windows for no particular reason.
     runs-on: windows-latest
+    env:
+      ARDUINO_LIBRARY_ENABLE_UNSAFE_INSTALL: true
  
     # This is the list of steps this job will run.
     steps:
@@ -63,7 +65,7 @@ jobs:
           arduino-cli core install ${{ matrix.arduino-platform }}
 
       - name: Install Library
-        run: arduino-cli lib install --zip-path ./library.zip --enable-unsafe-install true
+        run: arduino-cli lib install --zip-path ./library.zip
  
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
