@@ -63,7 +63,7 @@ jobs:
           arduino-cli core install ${{ matrix.arduino-platform }}
 
       - name: Install Library
-        run: arduino-cli lib install --zip-path ./library.zip --enable_unsafe_install true
+        run: arduino-cli lib install --zip-path ./library.zip --enable-unsafe-install true
  
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
