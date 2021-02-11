@@ -114,6 +114,8 @@ class VMA430_GPS {
   bool parse_nav_pos(void);
   
 	byte getUBX_ACK(byte *);
+  uint32_t extractLong(uint8_t, byte*);
+  int32_t extractSignedLong(uint8_t, byte*);
 	
 	long portRate;
 	Stream *stream = NULL;

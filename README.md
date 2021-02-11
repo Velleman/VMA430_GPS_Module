@@ -1,4 +1,4 @@
-# Whadda WPI430/VMA430 - GPS MODULE U-BLOX NEO-7M
+# Whadda WPI430/VMA430 - GPS MODULE U-BLOX NEO-7M ![Arduino library checker](https://github.com/Whaddadraft/VMA430_GPS_Module/workflows/Arduino%20library%20checker/badge.svg)
 
 This repository contains the library and example code to work with our Whadda WPI430/VMA430 GPS MODULE with the U-BLOX NEO-7M chipset. It can configure the module to send out UBX data packets, and is able to decode the time and location data.
 
@@ -14,11 +14,11 @@ This library only uses the UBX packets to decode the data.
 
 1. Download the most recent version of the Arduino library by clicking the ```Download ZIP``` option in the Code menu:
 
-![](./images/download.jpg)
+![](./extras/images/download.jpg)
 
 2. Open the Arduino IDE, click on Sketch > Include Library > Add .ZIP Library...
 
-![](./images/add_library.jpg)
+![](./extras/images/add_library.jpg)
 
 3. Open the .ZIP file you just downloaded, a message should appear in the Arduino IDE: "Library added to your libraries. Check "include library" menu."
 
@@ -34,7 +34,7 @@ Wire up the GPS module to an Arduino compatible board as shown below:
 |TXD|D3|
 |RXD|D2|
 
-![](./images/wiring_diagram.png)
+![](./extras/images/wiring_diagram.png)
 
 ### Programming
 
