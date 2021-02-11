@@ -36,7 +36,7 @@ jobs:
  
     # This is the platform GitHub will use to run our workflow, we
     # pick Windows for no particular reason.
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       ARDUINO_LIBRARY_ENABLE_UNSAFE_INSTALL: true
  
@@ -46,11 +46,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Prepare folder for zipping
+        run: |
+          mkdir VMA430_GPS_Module
+          cp -r ./examples ./VMA430_GPS_Module
+          cp -r ./src ./VMA430_GPS_Module
+          cp library.properties ./VMA430_GPS_Module
+          cp keywords.txt ./VMA430_GPS_Module
+
       - name: Zip Library
         uses: papeloto/action-zip@v1
         with:
-          files: examples/ src/ library.properties keywords.txt
-          dest: library.zip
+          files: VMA430_GPS_Module/
+          dest: VMA430_GPS_Module.zip
  
       # We use the arduino/setup-arduino-cli action to install and
       # configure the Arduino CLI on the system.
@@ -65,7 +73,7 @@ jobs:
           arduino-cli core install ${{ matrix.arduino-platform }}
 
       - name: Install Library
-        run: arduino-cli lib install --zip-path ./library.zip
+        run: arduino-cli lib install --zip-path ./VMA430_GPS_Module.zip
  
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
