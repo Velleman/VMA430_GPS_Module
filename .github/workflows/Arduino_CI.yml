@@ -1,4 +1,3 @@
----
 name: Arduino_CI
 
 on: [pull_request,push]
