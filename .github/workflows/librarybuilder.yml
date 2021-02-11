@@ -59,4 +59,4 @@ jobs:
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
       - name: Compile Sketch
-        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} ./blink
+        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} ./examples/Show_time_location
