@@ -32,7 +32,6 @@ jobs:
           #  enforce that.
           #
           EXPECT_EXAMPLES: true
-          EXPECT_UNITTESTS: false
 
           # Although dependencies will be installed automatically via the
           # library manager, your library under test may require an
