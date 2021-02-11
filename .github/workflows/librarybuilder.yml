@@ -49,10 +49,11 @@ jobs:
       - name: Prepare folder for zipping
         run: |
           mkdir VMA430_GPS_Module
-          cp -r ./examples ./VMA430_GPS_Module
-          cp -r ./src ./VMA430_GPS_Module
-          cp library.properties ./VMA430_GPS_Module
-          cp keywords.txt ./VMA430_GPS_Module
+          mkdir VMA430_GPS_Module/VMA430_GPS_Module
+          cp -r ./examples ./VMA430_GPS_Module/VMA430_GPS_Module
+          cp -r ./src ./VMA430_GPS_Module/VMA430_GPS_Module
+          cp library.properties ./VMA430_GPS_Module/VMA430_GPS_Module
+          cp keywords.txt ./VMA430_GPS_Module/VMA430_GPS_Module
 
       - name: Zip Library
         uses: papeloto/action-zip@v1
