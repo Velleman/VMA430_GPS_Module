@@ -1,13 +1,15 @@
 # Syntax Coloring Map For VMA430_GPS library
 
 # Datatypes (KEYWORD1)
+VMA430_GPS	KEYWORD1
 
 # Methods and Functions (KEYWORD2)
-begin           KEYWORD2
-setUBXNav       KEYWORD2
-getUBX_packet   KEYWORD2
-parse_ubx_data  KEYWORD2
+begin	KEYWORD2
+setUBXNav	KEYWORD2
+getUBX_packet	KEYWORD2
+parse_ubx_data	KEYWORD2
 
 # Instances (KEYWORD2)
+utc_time	KEYWORD3
 
 # Constants (LITERAL1)
