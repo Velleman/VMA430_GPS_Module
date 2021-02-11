@@ -43,6 +43,12 @@ jobs:
       # First of all, we clone the repo using the checkout action.
       - name: Checkout
         uses: actions/checkout@master
+
+      - name: Zip Library
+        uses: papeloto/action-zip@v1
+        with:
+          files: examples/ src/ library.properties keywords.txt
+          dest: library.zip
  
       # We use the arduino/setup-arduino-cli action to install and
       # configure the Arduino CLI on the system.
@@ -55,6 +61,9 @@ jobs:
         run: |
           arduino-cli core update-index
           arduino-cli core install ${{ matrix.arduino-platform }}
+
+      - name: Install Library
+        run: arduino-cli lib install --zip-path ./library.zip
  
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
