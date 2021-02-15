@@ -2,15 +2,7 @@ packages:
   arduino:megaavr:
     url: https://downloads.arduino.cc/packages/package_index.json
 
-compile:
-  # Choosing to run compilation tests on 2 different Arduino platforms
-  platforms:
-    - uno
-    - leonardo
-    - mega2560
-    - cplayClassic
-
-    nano_every:
+nano_every:
       board: arduino:megaavr:nona4809
       package: arduino:megaavr
       gcc:
@@ -21,3 +13,12 @@ compile:
           - AVR_NANO_4809_328MODE
         warnings:
         flags:
+
+compile:
+  # Choosing to run compilation tests on 2 different Arduino platforms
+  platforms:
+    - uno
+    - leonardo
+    - mega2560
+    - cplayClassic
+    - nano_every
