@@ -2,17 +2,18 @@ packages:
   arduino:megaavr:
     url: https://downloads.arduino.cc/packages/package_index.json
 
-nano_every:
-      board: arduino:megaavr:nona4809
-      package: arduino:megaavr
-      gcc:
-        features:
-        defines:
-          - MILLIS_USE_TIMERB3
-          - NO_EXTERNAL_I2C_PULLUP
-          - AVR_NANO_4809_328MODE
-        warnings:
-        flags:
+platfoms:
+  nano_every:
+        board: arduino:megaavr:nona4809
+        package: arduino:megaavr
+        gcc:
+          features:
+          defines:
+            - MILLIS_USE_TIMERB3
+            - NO_EXTERNAL_I2C_PULLUP
+            - AVR_NANO_4809_328MODE
+          warnings:
+          flags:
 
 compile:
   # Choosing to run compilation tests on 2 different Arduino platforms
