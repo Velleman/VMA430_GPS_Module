@@ -5,3 +5,4 @@ compile:
     - leonardo
     - mega2560
     - cplayClassic
+    - nano_every
