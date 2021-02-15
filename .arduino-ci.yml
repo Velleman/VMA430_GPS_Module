@@ -2,7 +2,7 @@ packages:
   arduino:megaavr:
     url: https://downloads.arduino.cc/packages/package_index.json
 
-platfoms:
+platforms:
 
   nano_every:
         board: arduino:megaavr:nona4809
