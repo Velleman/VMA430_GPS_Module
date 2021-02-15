@@ -13,6 +13,8 @@ UBX packets use a more compact data encoding algorithm which makes it faster to 
 
 This library only uses the UBX packets to decode the data.
 
+For more information, check the U-Blox Neo-7M datasheet [here](https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf).
+
 
 ## Installation
 
