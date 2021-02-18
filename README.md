@@ -1,4 +1,4 @@
-# Whadda WPI430/VMA430 - GPS MODULE U-BLOX NEO-7M ![Arduino_CI](https://github.com/Whaddadraft/VMA430_GPS_Module/workflows/Arduino_CI/badge.svg)
+# Whadda WPI430/VMA430 - GPS MODULE U-BLOX NEO-7M ![Arduino_CI](https://github.com/Whaddadraft/VMA430_GPS_Module/workflows/Arduino_CI/badge.svg) [![arduino-library-badge](https://www.ardu-badge.com/badge/WPI430-VMA430%20GPS.svg?)](https://www.ardu-badge.com/WPI430-VMA430%20GPS)
 
 ![Whadda WPI430/VMA430 - GPS MODULE](https://www.velleman.eu/images/products/29/vma430.jpg)
 
