@@ -37,10 +37,16 @@ Wire up the GPS module to an Arduino compatible board as shown below:
 |----------|-------------|
 |VCC|5V|
 |GND|GND|
-|TXD|D3|
-|RXD|D2|
+|TXD|D11|
+|RXD|D10|
 
 ![](./extras/images/wiring_diagram.png)
+
+**Note:** The library uses a SoftwareSerial port to communicate with the GPS module. The default pin layout should be compatible with Arduino Uno, Mega, Leonardo, and Micro compatible boards. Other Arduino models may have different restrictions on the pins that can be used for this purpose. Check the limitations section of the SoftwareSerial Arduino site page (https://www.arduino.cc/en/Reference/softwareSerial) to find out which pins can be used on your particular Arduino board model. You can change the pins that are used by the library by altering the following line of code:
+
+```Cpp
+SoftwareSerial ss(11, 10); // RX, TX
+```
 
 ### Programming
 

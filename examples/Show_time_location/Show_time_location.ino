@@ -28,7 +28,7 @@
 #include <VMA430_GPS.h>     // Include the GPS module library
 #include <SoftwareSerial.h> // Include the software serial library
 
-SoftwareSerial ss(3, 2); // RX, TX
+SoftwareSerial ss(11, 10); // RX, TX
 VMA430_GPS gps(&ss);     // Pass the softwareserial connection info the the GPS module library
 
 void setup()
